@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MyCRUD.Models.Rent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Rents</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.owner.Fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staff.Fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ptype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerNoRef)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffNoRef)
+        </th>
+        th>
+        @Html.DisplayNameFor(model => model.BranchNoRef)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rent1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.owner.Fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff.Fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ptype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerNoRef)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffNoRef)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchNoRef)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rent1)
+        </td>
+       
+    </tr>
+}
+
+</table>
+@Html.ActionLink("Create New Rent", "Create")
