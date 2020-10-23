@@ -13,12 +13,6 @@
             @Html.DisplayNameFor(model => model.PropertyNo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.owner.Fname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.staff.Fname)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Street)
         </th>
         <th>
@@ -36,7 +30,7 @@
         <th>
             @Html.DisplayNameFor(model => model.StaffNoRef)
         </th>
-        th>
+        <th>
         @Html.DisplayNameFor(model => model.BranchNoRef)
         </th>
         <th>
@@ -49,12 +43,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.PropertyNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.owner.Fname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.staff.Fname)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Street)
@@ -80,7 +68,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.rent1)
         </td>
-       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PropertyNo }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PropertyNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PropertyNo })
+        </td>
     </tr>
 }
 

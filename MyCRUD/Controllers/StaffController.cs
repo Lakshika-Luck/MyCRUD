@@ -62,7 +62,7 @@ namespace MyCRUD.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteEmployee(String id)
+        public ActionResult DeleteStaff(String id)
         {
             Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
             AppContext.Staffs.Remove(staff);

@@ -15,7 +15,6 @@ namespace MyCRUD.Controllers
             List<Rent> AllRent = AppContext.Rents.ToList();
             return View(AllRent);
         }
-
         public ActionResult Create()
         {
             ViewBag.OwnerDetails = AppContext.Owners;
@@ -48,6 +47,51 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Details(String id)
+        {
+            Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
+            return View(rent);
+        }
 
+        public ActionResult Edit(String id)
+        {
+            Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
+            ViewBag.RentDetails = new SelectList(AppContext.Rents, "PropertyNo");
+            ViewBag.BranchDetails = new SelectList(AppContext.Rents, "BranchNoRef");
+            ViewBag.StaffDetails = new SelectList(AppContext.Rents, "StaffNoRef");
+            ViewBag.OwnerDetails = new SelectList(AppContext.Rents, "OwnerNoRef");
+            return View(rent);
+        }
+        [HttpPost]
+        public ActionResult Edit(String id, Rent updatedRents)
+        {
+            Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
+            rent.PropertyNo = updatedRents.PropertyNo;
+            rent.Street = updatedRents.Street;
+            rent.Ptype = updatedRents.Ptype;
+            rent.Rooms = updatedRents.Rooms;
+            rent.OwnerNoRef = updatedRents.OwnerNoRef;
+            rent.StaffNoRef = updatedRents.StaffNoRef;
+            rent.BranchNoRef = updatedRents.BranchNoRef;
+            AppContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(String id)
+        {
+            Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
+            return View(rent);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteRent(String id)
+        {
+            Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
+            AppContext.Rents.Remove(rent);
+            AppContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
+
+
 }
