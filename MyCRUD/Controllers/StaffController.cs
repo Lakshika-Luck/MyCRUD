@@ -29,5 +29,45 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Details(String id)
+        {
+            Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
+            return View(staff);
+        }
+
+        public ActionResult Edit(String id)
+        {
+            Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
+            ViewBag.BranchDetails = new SelectList(AppContext.Staffs, "StaffNo", "FName");
+            return View(staff);
+        }
+        [HttpPost]
+        public ActionResult Edit(String id, Staff updatedStaff)
+        {
+            Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
+            staff.StaffNo = updatedStaff.StaffNo;
+            staff.Fname = updatedStaff.Fname;
+            staff.Lname = updatedStaff.Lname;
+            staff.Position = updatedStaff.Position;
+            staff.DOB = updatedStaff.DOB;
+            staff.Salary = updatedStaff.Salary;
+            AppContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(String id)
+        {
+            Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
+            return View(staff);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteEmployee(String id)
+        {
+            Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
+            AppContext.Staffs.Remove(staff);
+            AppContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
-}
+ }

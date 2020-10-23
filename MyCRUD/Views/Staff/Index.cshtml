@@ -56,7 +56,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.BranchNoRef)
         </td>
-        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StaffNo }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StaffNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StaffNo })
+        </td>
     </tr>
 }
 
