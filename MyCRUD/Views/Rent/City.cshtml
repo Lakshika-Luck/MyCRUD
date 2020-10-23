@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>City</title>
+</head>
+<body>
+    
+    <h1>Cities</h1>
+    @foreach (string i in ViewBag.City)
+    {
+        <h3>@Html.ActionLink(i,"City1", new {  cy=1})</h3>
+    }
+</body>
+</html>

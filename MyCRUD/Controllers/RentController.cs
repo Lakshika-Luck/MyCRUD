@@ -91,6 +91,33 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult City()
+        {
+            var AllCity = AppContext.Rents.ToList();
+            int x = 0;
+            int y = 0;
+
+            foreach (Rent rent in AllCity)
+            {
+                x = x + 1;
+            }
+            string[] pos = new string[x];
+
+            foreach (Rent rent in AllCity)
+            {
+                pos[y] = rent.City;
+                y = y + 1;
+            }
+            var Array = pos.Distinct().ToArray();
+            ViewBag.City = Array;
+
+            return View();
+        }
+        public ActionResult City1(string cy)
+        {
+            List<Rent> rent = AppContext.Rents.Where(x=>x.City == cy).ToList();
+            return View();
+        }
     }
 
 

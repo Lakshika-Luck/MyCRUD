@@ -203,6 +203,8 @@
     <Content Include="Views\Rent\Details.cshtml" />
     <Content Include="Views\Rent\Delete.cshtml" />
     <Content Include="Views\Rent\Edit.cshtml" />
+    <Content Include="Views\Rent\City.cshtml" />
+    <Content Include="Views\Rent\City1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
