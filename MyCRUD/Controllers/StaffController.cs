@@ -38,7 +38,7 @@ namespace MyCRUD.Controllers
         public ActionResult Edit(String id)
         {
             Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
-            ViewBag.BranchDetails = new SelectList(AppContext.Branches, "BranchNo", "Street");
+            ViewBag.BranchDetails = AppContext.Branches;
             return View(staff);
             
         }

@@ -41,10 +41,9 @@ namespace MyCRUD.Controllers
         public ActionResult Edit(String id)
         {
             Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
-            ViewBag.RentDetails = new SelectList(AppContext.Rents, "PropertyNo");
-            //ViewBag.BranchDetails = new SelectList(AppContext.Rents, "BranchNoRef");
-            ViewBag.StaffDetails = new SelectList(AppContext.Rents, "StaffNoRef");
-            ViewBag.OwnerDetails = new SelectList(AppContext.Rents, "OwnerNoRef");
+            ViewBag.BranchDetails = AppContext.Branches;
+            ViewBag.StaffDetails = AppContext.Staffs;
+            ViewBag.OwnerDetails = AppContext.Owners;
             return View(rent);
         }
         [HttpPost]
