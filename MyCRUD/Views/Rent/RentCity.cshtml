@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MyCRUD.Models.Rent>
+@using MyCRUD.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>City</title>
+</head>
+<body>
+    
+    <h3>Details of Buldings According to Cities</h3>
+    @foreach (string i in ViewBag.RentCity)
+    {
+        <h3>@Html.ActionLink(i,"Rent_City", new {  c=i})</h3>
+    }
+</body>
+</html>

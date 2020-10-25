@@ -91,7 +91,7 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult City()
+        public ActionResult RentCity()
         {
             var AllCity = AppContext.Rents.ToList();
             int x = 0;
@@ -109,14 +109,14 @@ namespace MyCRUD.Controllers
                 y = y + 1;
             }
             var Array = pos.Distinct().ToArray();
-            ViewBag.City = Array;
+            ViewBag.RentCity = Array;
 
             return View();
         }
-        public ActionResult City1(string cy)
+        public ActionResult Rent_City(string c)
         {
-            List<Rent> rent = AppContext.Rents.Where(x=>x.City == cy).ToList();
-            return RedirectToAction("Index");
+            List<Rent> rent = AppContext.Rents.Where(x=>x.City == c).ToList();
+            return View(rent);
         }
     }
 

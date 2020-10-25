@@ -204,10 +204,10 @@
     <Content Include="Views\Rent\Details.cshtml" />
     <Content Include="Views\Rent\Delete.cshtml" />
     <Content Include="Views\Rent\Edit.cshtml" />
-    <Content Include="Views\Rent\City.cshtml" />
-    <Content Include="Views\Rent\City1.cshtml" />
-    <Content Include="Views\Staff\Position.cshtml" />
-    <Content Include="Views\Staff\Position1.cshtml" />
+    <Content Include="Views\Rent\RentCity.cshtml" />
+    <Content Include="Views\Rent\Rent_City.cshtml" />
+    <Content Include="Views\Staff\StaffPosition.cshtml" />
+    <Content Include="Views\Staff\Staff_Position.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

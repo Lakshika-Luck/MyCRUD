@@ -1,4 +1,5 @@
-﻿@model MyCRUD.Models.Staff
+﻿@model IEnumerable<MyCRUD.Models.Rent>
+@using MyCRUD.Models;
 
 @{
     Layout = null;
@@ -13,9 +14,9 @@
 </head>
 <body>
     <h1>Positions</h1>
-    @foreach (string i in ViewBag.Position)
+    @foreach (string i in ViewBag.StaffPosition)
     {
-        <h3>@Html.ActionLink(i, "Position1", new { po = i })</h3>
+        <h3>@Html.ActionLink(i, "Staff_Position", new { po = i })</h3>
     }
 </body>
 </html>

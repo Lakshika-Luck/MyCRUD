@@ -38,8 +38,9 @@ namespace MyCRUD.Controllers
         public ActionResult Edit(String id)
         {
             Staff staff = AppContext.Staffs.SingleOrDefault(x => x.StaffNo == id);
-            ViewBag.BranchDetails = new SelectList(AppContext.Staffs, "StaffNo", "FName");
+            ViewBag.BranchDetails = new SelectList(AppContext.Branches, "BranchNo", "Street");
             return View(staff);
+            
         }
         [HttpPost]
         public ActionResult Edit(String id, Staff updatedStaff)
@@ -69,7 +70,7 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult Position()
+        public ActionResult StaffPosition()
         {
             var AllStaff = AppContext.Staffs.ToList();
             int x = 0;
@@ -87,14 +88,14 @@ namespace MyCRUD.Controllers
                 y = y + 1;
             }
             var Array = pos.Distinct().ToArray();
-            ViewBag.Position = Array;
+            ViewBag.StaffPosition = Array;
 
             return View();
         }
-        public ActionResult Position1(string po)
+        public ActionResult Staff_Position(string po)
         {
             List<Staff> staff = AppContext.Staffs.Where(x => x.Position == po).ToList();
-            return RedirectToAction("Index");
+            return View(staff);
         }
     }
  }

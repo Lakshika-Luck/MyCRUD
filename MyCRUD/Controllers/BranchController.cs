@@ -23,6 +23,7 @@ namespace MyCRUD.Controllers
         [HttpPost]
         public ActionResult Create(Branch branch)
         {
+            ViewBag.BranchDetails = new SelectList(AppContext.Branches, "BranchNo");
             AppContext.Branches.Add(branch);
             AppContext.SaveChanges();
             return RedirectToAction("Index");
