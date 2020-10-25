@@ -69,5 +69,32 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Position()
+        {
+            var AllStaff = AppContext.Staffs.ToList();
+            int x = 0;
+            int y = 0;
+
+            foreach (Staff staff in AllStaff)
+            {
+                x = x + 1;
+            }
+            string[] pos = new string[x];
+
+            foreach (Staff staff in AllStaff)
+            {
+                pos[y] = staff.Position;
+                y = y + 1;
+            }
+            var Array = pos.Distinct().ToArray();
+            ViewBag.Position = Array;
+
+            return View();
+        }
+        public ActionResult Position1(string po)
+        {
+            List<Staff> staff = AppContext.Staffs.Where(x => x.Position == po).ToList();
+            return RedirectToAction("Index");
+        }
     }
  }

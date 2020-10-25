@@ -116,7 +116,7 @@ namespace MyCRUD.Controllers
         public ActionResult City1(string cy)
         {
             List<Rent> rent = AppContext.Rents.Where(x=>x.City == cy).ToList();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 

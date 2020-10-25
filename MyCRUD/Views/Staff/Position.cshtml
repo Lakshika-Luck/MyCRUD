@@ -1,0 +1,21 @@
+﻿@model MyCRUD.Models.Staff
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Position</title>
+</head>
+<body>
+    <h1>Positions</h1>
+    @foreach (string i in ViewBag.Position)
+    {
+        <h3>@Html.ActionLink(i, "Position1", new { po = i })</h3>
+    }
+</body>
+</html>
