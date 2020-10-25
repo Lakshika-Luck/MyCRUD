@@ -17,36 +17,21 @@ namespace MyCRUD.Controllers
         }
         public ActionResult Create()
         {
-            ViewBag.OwnerDetails = AppContext.Owners;
-            ViewBag.StaffDetails = AppContext.Staffs;
             ViewBag.BranchDetails = AppContext.Branches;
+            ViewBag.StaffDetails = AppContext.Staffs;
+            ViewBag.OwnerDetails = AppContext.Owners;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Owner owner)
+        public ActionResult Create(Rent rent)
         {
-            ViewBag.OwnerDetails = AppContext.Owners;
-            AppContext.Owners.Add(owner);
+
+            AppContext.Rents.Add(rent);
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
-        [HttpPost]
-        public ActionResult Create(Staff staff)
-        {
-            ViewBag.StaffDetails = AppContext.Staffs;
-            AppContext.Staffs.Add(staff);
-            AppContext.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        [HttpPost]
-        public ActionResult Create(Branch branch)
-        {
-            ViewBag.BranchDetails = AppContext.Branches;
-            AppContext.Branches.Add(branch);
-            AppContext.SaveChanges();
-            return RedirectToAction("Index");
-        }
+
         public ActionResult Details(String id)
         {
             Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
@@ -57,7 +42,7 @@ namespace MyCRUD.Controllers
         {
             Rent rent = AppContext.Rents.SingleOrDefault(x => x.PropertyNo == id);
             ViewBag.RentDetails = new SelectList(AppContext.Rents, "PropertyNo");
-            ViewBag.BranchDetails = new SelectList(AppContext.Rents, "BranchNoRef");
+            //ViewBag.BranchDetails = new SelectList(AppContext.Rents, "BranchNoRef");
             ViewBag.StaffDetails = new SelectList(AppContext.Rents, "StaffNoRef");
             ViewBag.OwnerDetails = new SelectList(AppContext.Rents, "OwnerNoRef");
             return View(rent);

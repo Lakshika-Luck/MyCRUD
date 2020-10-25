@@ -55,26 +55,28 @@
             </div>
         </div>
 
+        
+
         <div class="form-group">
-            @Html.LabelFor(model => model.OwnerNoRef, "Owner Number", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OwnerNoRef, "OwnerNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.OwnerNoRef, new SelectList(ViewBag.OwnerDetails, "OwnerNoRef"), "Select The Owner")
+                @Html.DropDownListFor(model => model.OwnerNoRef, new SelectList(ViewBag.OwnerDetails, "", "OwnerNo"), "Select the branch")
                 @Html.ValidationMessageFor(model => model.OwnerNoRef, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StaffNoRef, "Staff Number", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StaffNoRef, "StaffNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.StaffNoRef, new SelectList(ViewBag.StaffDetails, "StaffNoRef"), "Select The StaffNo")
+                @Html.DropDownListFor(model => model.StaffNoRef, new SelectList(ViewBag.StaffDetails, "", "StaffNo"), "Select the branch")
                 @Html.ValidationMessageFor(model => model.StaffNoRef, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BranchNoRef, "Branch Number", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BranchNoRef, "BranchNoRef", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.BranchNoRef, new SelectList(ViewBag.BranchDetails, "BranchNoRef"), "Select The Branch")
+                @Html.DropDownListFor(model => model.BranchNoRef, new SelectList(ViewBag.BranchDetails, "", "BranchNo"), "Select the branch")
                 @Html.ValidationMessageFor(model => model.BranchNoRef, "", new { @class = "text-danger" })
             </div>
         </div>
