@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
@@ -214,7 +215,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Main\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010211451417_Migrate1.resx">
       <DependentUpon>202010211451417_Migrate1.cs</DependentUpon>
