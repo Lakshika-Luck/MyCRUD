@@ -66,5 +66,18 @@ namespace MyCRUD.Controllers
             AppContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult NoOfBuildingBranch()
+        {
+            List<Branch> AllBranch = AppContext.Branches.ToList();
+
+            return View(AllBranch);
+        }
+
+        public ActionResult NoOfBuildingBranch1(String id)
+        {
+            var rent = AppContext.Rents.Where(x => x.BranchNoRef == id).ToList().Count();
+            ViewBag.count = rent;
+            return View();
+        }
     }
 }
